@@ -2,9 +2,10 @@ snowflake-connector-python
 snowflake-snowpark-python
 snowflake-ml-python
 streamlit
+SQLAlchemy
+scipy
+pandas
 pyyaml
 xmltodict
 plotly
 pyvis
-scipy
-pandas
