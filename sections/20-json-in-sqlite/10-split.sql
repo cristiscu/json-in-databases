@@ -1,6 +1,14 @@
 -- JSON Split into Rows
 
+SELECT * FROM t1;
+
 -- json_each
+SELECT value, id, key
+FROM t1, json_each(j, '$.store');
+
+SELECT value, id, key
+FROM t1, json_each(j, '$.store.bicycle');
+
 SELECT value, id, key
 FROM t1, json_each(j, '$.store.book');
 

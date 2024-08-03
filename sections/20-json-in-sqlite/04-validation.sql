@@ -9,8 +9,8 @@ from t1;
 
 -- json_valid
 -- json_error_position
-select json_valid('{"name": "John", "age": +35.22}') as "invalid",
-	json_error_position('{"name": "John", "age": +35.22}') as "err_pos"
+select json_valid('{"name": "John", "age": W35.22}') as "invalid",
+	json_error_position('{"name": "John", "age": W35.22}') as "err_pos"
 from t1;
 
 -- json_type --> 'object', 'array'
