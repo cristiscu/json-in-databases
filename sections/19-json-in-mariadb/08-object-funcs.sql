@@ -1,4 +1,4 @@
- -- JSON Manipulation Functions
+ -- Object Manipulation Functions
 use test;
 
 -- =================================================
