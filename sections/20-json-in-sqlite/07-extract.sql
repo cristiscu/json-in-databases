@@ -1,4 +1,4 @@
--- JSON Path Expressions
+-- JSON Extraction Functions
 
 -- no obj["prop"] path
 SELECT json_extract(j, '$.store.bicycle["color"]') as str2
