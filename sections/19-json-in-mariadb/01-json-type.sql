@@ -49,4 +49,4 @@ create table t1(j json);
 
 insert into t1(j) values (@json);
 
-select * from t1;
+select j, json_type(j) from t1;
