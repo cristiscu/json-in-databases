@@ -1,4 +1,4 @@
--- JSON Constructors: json_object/array
+-- JSON Constructors: json_object/array, json_objectagg/arrayagg
 use test;
 
 -- {}, {"name": "John", "status": null, "age": 35}

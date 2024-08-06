@@ -1,8 +1,17 @@
--- JSON Extraction: json_value/query/extract
+-- JSON Extraction: json_keys, json_value/extract
 use test;
 
 -- =================================================
--- json_value/query
+-- json_keys
+
+-- ["a", "b", "c"]
+select json_keys('{"a":1, "b":2, "c":3}');
+
+-- ["name", "status", "age", "children"]
+select j, json_keys(j, '$.persons[0]') from t2;
+
+-- =================================================
+-- json_value
 
 -- NULL, NULL, 35, John
 select j,
@@ -10,14 +19,6 @@ select j,
 	json_value(j, '$.persons[0]'),
 	json_value(j, '$.persons[0].age'),
 	json_value(j, '$.persons[0].name')
-from t2;
-
--- [...], {...}, NULL, NULL
-select j,
-	json_query(j, '$.persons'),
-	json_query(j, '$.persons[0]'),
-	json_query(j, '$.persons[0].age'),
-	json_query(j, '$.persons[0].name')
 from t2;
 
 -- =================================================
@@ -90,4 +91,19 @@ from t2;
 
 -- ["Mary"]
 select j, json_extract(j, '$**[0]**[1].name')
+from t2;
+
+-- =====================================================================
+-- member of
+
+-- 1, 0, 1
+select
+	2 member of ('[1, 2, 3]'),
+	10 member of ('[1, 2, 3]'),
+	'{ "name":"John", "age":35 }' member of ('[{ "name":"Mary", "age":22 }, { "name":"John", "age":35 }]');
+
+-- 1, 0
+select j
+	'{ "name": "Mary" }' member of (json_query(j, '$.persons[0].children')),
+	'{ "name": "Laura" }' member of (json_query(j, '$.persons[0].children'))
 from t2;

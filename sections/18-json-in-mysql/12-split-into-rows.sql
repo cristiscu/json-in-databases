@@ -1,4 +1,4 @@
--- JSON Split into Rows - see https://mariadb.com/kb/en/json_table/
+-- JSON Split into Rows - see https://dev.mysql.com/doc/refman/9.0/en/json-table-functions.html
 use test;
 
 -- expand array -->  1, 2, 3 on rows (array elements)

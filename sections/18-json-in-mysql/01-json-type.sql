@@ -1,6 +1,7 @@
--- JSON String Parsing
+-- JSON String Parsing: JSON native data type
+-- see https://dev.mysql.com/doc/refman/9.0/en/json.html
 
--- should be v10.6+ (w/ JSON_TABLE) --> 11.4
+-- should be v8.0+ (2018)
 select version();
 
 -- create and select test database;
@@ -49,4 +50,9 @@ create table t1(j json);
 
 insert into t1(j) values (@json);
 
-select j, json_type(j) from t1;
+select j,
+    json_type(j),
+    json_storage_size(j),
+    json_storage_freed(j)
+from t1;
+

@@ -1,4 +1,5 @@
--- JSON String Parsing
+-- JSON String Parsing: JSON native data type
+-- see https://mariadb.com/kb/en/json-data-type/
 
 -- should be v10.6+ (w/ JSON_TABLE) --> 11.4
 select version();

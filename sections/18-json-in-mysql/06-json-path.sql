@@ -1,4 +1,4 @@
--- JSON Path Expressions: https://mariadb.com/kb/en/jsonpath-expressions/
+-- JSON Path Syntax: https://dev.mysql.com/doc/refman/9.0/en/json.html#json-path-syntax
 use test;
 
 create or replace table t2(j json)
@@ -43,16 +43,14 @@ select j,
 from t2;
 
 -- =================================================
--- json_keys, json_object_filter_keys
+-- json_overlaps
 
--- ["a", "b", "c"], {"a": 1, "c": 3}
-select j,
-	json_keys('{"a":1, "b":2, "c":3}'),
-	json_object_filter_keys('{"a":1, "b":2, "c":3}', '["a", "c"]')
-from t2;
+-- 0, 1
+select
+	json_overlaps('{ "name":"John", "age":35 }', '{ "age2":35, "name":"John2" }'),
+	json_overlaps('{ "name":"John", "age":35 }', '{ "age2":35, "name":"John" }');
 
--- ["name", "status", "age", "children"], {"name": "John", "age": 35}
-select j,
-	json_keys(j, '$.persons[0]'),
-	json_object_filter_keys(json_extract(j, '$.persons[0]'), '["age", "name"]')
-from t2;
+-- 0 --> NULL, 1 --> [3]
+select
+	json_overlaps('[1, 2, 3]', '[4, 5, null]'),
+	json_overlaps('[1, 2, 3]', '[3, 5, null]');
