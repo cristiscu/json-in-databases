@@ -1,4 +1,5 @@
 # see https://medium.com/@george.pearse/how-to-start-learning-sql-with-streamlit-d3edad7494cd
+# streamlit run 01-test-sqlite3.py
 
 import os
 import sqlite3

@@ -1,5 +1,4 @@
--- JSON String Parsing: JSON native data type
--- see https://dev.mysql.com/doc/refman/9.0/en/json.html
+-- JSON native data type: see https://dev.mysql.com/doc/refman/9.0/en/json.html
 
 -- should be v8.0+ (2018)
 select version();
